@@ -13,7 +13,7 @@ class empolyee {
         this.salary = salary;
     }
 
-    double salary;
+    private double salary = 1000;
     String name;
 }
 public class encapcu {
