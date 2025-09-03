@@ -1,0 +1,98 @@
+package test;
+
+abstract class quickride {
+    String name;
+    int fair;
+    String id;
+
+    quickride(String name,  int fair, String id) {
+        this.name = name;
+        this.fair = fair;
+        this.id = id;
+    }
+    void showDetails() {
+        System.out.println("Name: " + name + " Id: " + id + " Fair: " + fair);
+    }
+    abstract void cancel();
+}
+interface cab {
+    void confirm();
+}
+
+interface train {
+    void confirm();
+}
+
+interface bus {
+    void confirm();
+}
+
+class cabcostumer extends quickride implements cab {
+    cabcostumer(String name ,  int fair, String id) {
+        super(name , fair, id);
+    }
+
+    @Override
+    void cancel() {
+        System.out.println(name + " cancel his/her ride \n" + "returning amount-> 300");
+    }
+
+    @Override
+    public void confirm() {
+        System.out.println(name + " confirm his/her ride with this price->" + fair);
+    }
+}
+
+class traincostumer extends quickride implements train {
+    traincostumer(String name,  int fair, String id) {
+        super(name,fair, id);
+    }
+
+    @Override
+    void cancel() {
+        System.out.println(name + " cancel hi/her ride \n" + "returning amount-> 1000");
+    }
+
+    @Override
+    public void confirm() {
+        System.out.println(name + " confirm his/her ride with this price->" + fair);
+    }
+}
+
+class buscostumer extends quickride implements bus {
+    buscostumer(String name ,  int fair, String id) {
+        super(name , fair, id);
+    }
+
+
+    void cancel() {
+        System.out.println(name + " cancel hi/her ride\n" + "returning amount-> 0");
+    }
+
+    @Override
+    public void confirm() {
+        System.out.println(name + " confirm his/her ride with this price->" + fair);
+    }
+}
+public class ques1 {
+    public static void main(String[] args) {
+        buscostumer s1 = new buscostumer("Amit", 200, "BUS303");
+        traincostumer s2 = new traincostumer("Priya", 1200,"TRN202");
+        cabcostumer s3 = new cabcostumer("Rahul", 500,"CAB101");
+
+        s1.showDetails();
+        s1.confirm();
+        s1.cancel();
+
+        s2.showDetails();
+        s2.confirm();
+        s2.cancel();
+
+        s3.showDetails();
+        s3.confirm();
+        s3.cancel();
+    }
+}
+
+
+
